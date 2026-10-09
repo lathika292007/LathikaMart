@@ -86,8 +86,11 @@
                     <label class="form-label" for="prod-category">Category *</label>
                     <select id="prod-category" class="form-select" required>
                         <option value="Smartphones & ACs">📱 Smartphones & ACs</option>
+                        <option value="Laptops & Electronics">💻 Laptops & Electronics</option>
+                        <option value="Home Appliances & Kitchen">🏠 Home Appliances & Kitchen</option>
                         <option value="Men's Clothing">👔 Men's Clothing (Shirt, Pant, T-Shirt, Jeans)</option>
                         <option value="Women's Fashion">👗 Women's Fashion (Kurti, Saree, Crop Top, Kurta Set)</option>
+                        <option value="Footwear & Accessories">👟 Footwear & Watches</option>
                         <option value="Cosmetics & Beauty">💄 Cosmetics & Beauty (Makeup Products)</option>
                         <option value="Snacks & Foods">🍿 Snacks & Foods (Murukku, Sweets, Nuts)</option>
                     </select>

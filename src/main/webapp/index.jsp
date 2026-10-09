@@ -54,7 +54,7 @@
                 ✨ Welcome to LathikaMart!
             </h1>
             <p class="hero-subtext">
-                Discover 55+ Premium Smartphones, ACs, Kurtis, Sarees, Designer Fashion, Makeup & Gourmet Snacks — Fast Delivery & Best Unbeatable Prices!
+                Discover 80+ Premium Laptops, Smartphones, ACs, Home Appliances, Kurtis, Sarees, Designer Fashion, Footwear, Makeup & Gourmet Snacks — Fast Express Delivery & Best Prices!
             </p>
             <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
                 <button onclick="document.getElementById('search-input').focus()" class="btn btn-primary" style="padding: 0.75rem 1.75rem; font-size:1.05rem; font-weight:700;">
@@ -93,10 +93,13 @@
                 <div style="flex:1; min-width:160px;">
                     <label style="font-size:0.8rem; color:#94a3b8; display:block; margin-bottom:0.25rem;">Category</label>
                     <select id="category-filter" class="form-select" onchange="handleSearch()">
-                        <option value="all">All Categories (55+ Items)</option>
+                        <option value="all">All Categories (80+ Items)</option>
                         <option value="Smartphones & ACs">📱 Phones & ❄️ ACs</option>
+                        <option value="Laptops & Electronics">💻 Laptops & 🎧 Electronics</option>
+                        <option value="Home Appliances & Kitchen">🏠 Home & 🍳 Kitchen Appliances</option>
                         <option value="Men's Clothing">👔 Men's Shirts, Pants, T-Shirts & Jeans</option>
                         <option value="Women's Fashion">👗 Women's Kurtis, Sarees, Crop Tops & Sets</option>
+                        <option value="Footwear & Accessories">👟 Footwear & ⌚ Watches</option>
                         <option value="Cosmetics & Beauty">💄 Cosmetics & 10 Makeup Items</option>
                         <option value="Snacks & Foods">🍿 Snacks, Murukku, Chocolates & Dry Fruits</option>
                     </select>
@@ -126,8 +129,11 @@
                 <span style="font-size:0.8rem; color:#94a3b8; margin-right:0.5rem;">Quick Facets:</span>
                 <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('all')">All</button>
                 <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Smartphones & ACs')">📱 Phones & ACs</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Laptops & Electronics')">💻 Laptops</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Home Appliances & Kitchen')">🏠 Home & Kitchen</button>
                 <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Men\'s Clothing')">👔 Men's Fashion</button>
                 <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Women\'s Fashion')">👗 Women's Ethnic</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Footwear & Accessories')">👟 Footwear</button>
                 <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Cosmetics & Beauty')">💄 Makeup</button>
                 <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Snacks & Foods')">🍿 Snacks</button>
             </div>

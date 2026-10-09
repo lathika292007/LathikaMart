@@ -1,4 +1,4 @@
--- LathikaMart Comprehensive Catalog Migration V2__seed_data.sql (65+ Products)
+-- LathikaMart Comprehensive Catalog Migration V2__seed_data.sql (80+ Products across 8 Categories)
 
 MERGE INTO users (id, name, email, password_hash, role) KEY(id) VALUES 
 (1, 'Admin User', 'admin@lathikamart.com', '$2a$10$5Qv70cHNt38aSfAw65NfE.hcXoChUbJdNDI7Q1XA/Px.2r8aToKzi', 'ADMIN'),
@@ -47,7 +47,7 @@ MERGE INTO products (id, seller_id, name, description, price, stock_qty, categor
 (33, 3, 'Women Embroidered Straight Kurta Pants Set', 'Chanderi silk embroidered straight kurta with trousers and organza dupatta', 75.00, 18, "Women's Fashion", 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80'),
 (34, 3, 'Women Festive Printed Kurta Palazzo Dupatta Set', '3-piece rayon flared kurta with matching palazzo pants and printed chiffon dupatta', 59.99, 22, "Women's Fashion", 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80'),
 
--- 4. COSMETICS & MAKEUP (10 PRODUCTS) (IDs 35-44)
+-- 4. COSMETICS & MAKEUP (IDs 35-44)
 (35, 3, 'Matte Liquid Lipstick Longwear 5ml', 'Smudge-proof 12-hour transfer-proof matte liquid lipstick in Ruby Red', 14.99, 120, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80'),
 (36, 3, 'Waterproof Volume Express Mascara', 'Smear-proof instant lash lengthening and volumizing black mascara', 12.50, 100, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1591360236480-4ed861025fa1?auto=format&fit=crop&w=600&q=80'),
 (37, 3, 'Full Coverage Liquid Foundation 30ml', 'Hydrating oil-free natural matte liquid foundation with SPF 15', 24.99, 80, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=600&q=80'),
@@ -70,7 +70,38 @@ MERGE INTO products (id, seller_id, name, description, price, stock_qty, categor
 (52, 2, 'Crunchy Peanut Butter Creamy Spread 1kg', '100% roasted peanuts high protein zero trans-fat peanut butter jar', 13.99, 80, 'Snacks & Foods', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80'),
 (53, 2, 'Assorted Indian Mithai Sweet Box 500g', 'Fresh Kaju Katli, Besan Ladoo, and Milk Peda festive sweet gift hamper', 22.00, 60, 'Snacks & Foods', 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=600&q=80'),
 (54, 2, 'Cold Pressed Sparkling Mango Drink 6-Pack', 'Real Alphonso mango pulp sparkling refreshment cans with natural fruit juice', 10.99, 110, 'Snacks & Foods', 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80'),
-(55, 2, 'Multigrain Digestive Biscuit Family Pack 750g', 'High-fiber oats and wheat digestive biscuits ideal for evening tea', 7.50, 160, 'Snacks & Foods', 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80');
+(55, 2, 'Multigrain Digestive Biscuit Family Pack 750g', 'High-fiber oats and wheat digestive biscuits ideal for evening tea', 7.50, 160, 'Snacks & Foods', 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80'),
+
+-- 6. LAPTOPS & ELECTRONICS (IDs 56-65)
+(56, 2, 'Apple MacBook Air M3 15-inch 16GB RAM', 'Liquid Retina display, M3 chip, 18-hour battery life in Starlight', 1299.00, 12, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80'),
+(57, 2, 'Dell XPS 13 Intel Core i7 16GB SSD 512GB', 'FHD+ InfinityEdge display, ultra-portable aluminum chassis', 1149.00, 15, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80'),
+(58, 2, 'HP Pavilion Gaming Laptop RTX 4050', '15.6" 144Hz FHD display, AMD Ryzen 7, RGB backlit keyboard', 899.99, 18, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=600&q=80'),
+(59, 2, 'Sony WH-1000XM5 Wireless Headphones', 'Industry-leading noise canceling with 8 microphones & Auto NC Optimizer', 398.00, 30, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80'),
+(60, 2, 'Apple iPad Air 10.9" M2 128GB Wi-Fi', 'Liquid Retina display, M2 chip, Landscape 12MP Front Camera', 599.00, 22, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80'),
+(61, 2, 'Samsung Galaxy Tab S9 Ultra 14.6"', 'Dynamic AMOLED 2X, S-Pen included, Armor Aluminum casing', 1049.00, 10, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=600&q=80'),
+(62, 2, 'Anker PowerCore 24,000mAh Power Bank', '140W multi-device fast charging power bank with smart digital display', 99.99, 50, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1609592424089-985c54e0b0ce?auto=format&fit=crop&w=600&q=80'),
+(63, 2, 'Logitech MX Master 3S Wireless Mouse', '8K DPI glass tracking, quiet clicks, ergonomic performance wheel', 99.00, 45, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80'),
+(64, 2, 'Samsung 32" Odyssey Curved Gaming Monitor', 'QHD 165Hz 1ms response time 1000R curved gaming monitor', 349.00, 14, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80'),
+(65, 2, 'JBL Flip 6 Portable Bluetooth Speaker', '2-way speaker system, IP67 waterproof and dustproof, 12 hours playtime', 129.95, 40, 'Laptops & Electronics', 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80'),
+
+-- 7. HOME APPLIANCES & KITCHEN (IDs 66-73)
+(66, 2, 'Dyson V15 Detect Cordless Vacuum Cleaner', 'Laser reveals microscopic dust, Intelligent Suction adjustment', 749.99, 8, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=600&q=80'),
+(67, 2, 'Philips Air Fryer XXL 1.4kg Capacity', 'Rapid Air technology, 90% less fat, digital touch display with 7 presets', 199.95, 25, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=600&q=80'),
+(68, 2, 'Nespresso Vertuo Coffee & Espresso Machine', 'Centrifusion extraction technology, single-serve coffee maker with Aeroccino', 179.00, 20, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1517668808822-9ebe02f2a698?auto=format&fit=crop&w=600&q=80'),
+(69, 2, 'Instant Pot Duo 7-in-1 Pressure Cooker 6L', 'Pressure cooker, slow cooker, rice cooker, steamer, sauté pan & warmer', 89.99, 35, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?auto=format&fit=crop&w=600&q=80'),
+(70, 2, 'Panasonic 27L Convection Microwave Oven', 'Zero-oil cooking options, 101 auto-cook menus, stainless steel cavity', 169.00, 15, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=600&q=80'),
+(71, 2, 'Prestige Stainless Steel Induction Cooktop', 'Preset Indian menu options, dual heat sensor, automatic voltage regulator', 49.99, 45, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80'),
+(72, 2, 'Kent Ultra Storage UV Water Purifier 8L', 'In-tank UV disinfection, 60L/hr purification capacity for pure drinking water', 129.00, 18, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80'),
+(73, 2, 'Havells 3-in-1 Silent Air Fryer & Grill', 'Aero Crisp technology, 360-degree hot air circulation, transparent window', 139.50, 20, 'Home Appliances & Kitchen', 'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=600&q=80'),
+
+-- 8. FOOTWEAR & ACCESSORIES (IDs 74-80)
+(74, 3, 'Nike Air Force 1 07 Triple White Sneakers', 'Classic leather upper, encapsulated Air-sole cushioning unit', 115.00, 30, 'Footwear & Accessories', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80'),
+(75, 3, 'Adidas Ultraboost Light Running Shoes', 'Light BOOST midsole material, Primeknit+ upper for energy return', 180.00, 25, 'Footwear & Accessories', 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=600&q=80'),
+(76, 3, 'Puma Men Classic Leather Casual Sneakers', 'Low boot silhouette, softfoam+ sockliner for superior cushioning', 65.00, 40, 'Footwear & Accessories', 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80'),
+(77, 3, 'Fossil Gen 6 Touchscreen Smartwatch', 'Snapdragon Wear 4100+ platform, heart rate, SpO2 & GPS tracking', 229.00, 18, 'Footwear & Accessories', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80'),
+(78, 3, 'Ray-Ban Classic Aviator Sunglasses G-15', 'Gold metal frame with classic green G-15 crystal glass lenses', 163.00, 35, 'Footwear & Accessories', 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80'),
+(79, 3, 'Titan Men Chronograph Brown Leather Watch', 'Water resistant analog chronograph watch with date display in rose gold', 119.00, 22, 'Footwear & Accessories', 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80'),
+(80, 3, 'Samsonite Hardside Spinner Luggage 28-inch', 'Polycarbonate scratch-resistant shell, TSA lock and 360 dual spinner wheels', 219.00, 12, 'Footwear & Accessories', 'https://images.unsplash.com/photo-1565026057447-ba90a3d07d6c?auto=format&fit=crop&w=600&q=80');
 
 MERGE INTO orders (id, buyer_id, status, total_amount) KEY(id) VALUES
 (1, 4, 'DELIVERED', 1199.00);
@@ -82,4 +113,6 @@ MERGE INTO reviews (id, product_id, user_id, rating, comment) KEY(id) VALUES
 (1, 1, 4, 5, 'Super fast iPhone 15 Pro Max, camera is incredible!'),
 (2, 6, 4, 5, 'Voltas AC cools the room in under 5 minutes.'),
 (3, 23, 4, 5, 'Beautiful Anarkali kurti, perfect fit and soft fabric.'),
-(4, 35, 4, 5, 'Lipstick color stays all day without drying lips!');
+(4, 35, 4, 5, 'Lipstick color stays all day without drying lips!'),
+(5, 56, 4, 5, 'MacBook Air M3 is super fast and battery lasts all day!'),
+(6, 74, 4, 5, 'Classic Air Force 1s, super comfortable and stylish.');
