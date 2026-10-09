@@ -57,12 +57,17 @@
                 <div style="flex:1; min-width:160px;">
                     <label style="font-size:0.8rem; color:#94a3b8; display:block; margin-bottom:0.25rem;">Category</label>
                     <select id="category-filter" class="form-select" onchange="handleSearch()">
-                        <option value="all">All Categories</option>
+                        <option value="all">All Categories (52 Items)</option>
                         <option value="Electronics">Electronics</option>
-                        <option value="Fashion">Fashion</option>
+                        <option value="Wearables">Wearables</option>
+                        <option value="Audio">Audio</option>
                         <option value="Home & Kitchen">Home & Kitchen</option>
-                        <option value="Books">Books</option>
-                        <option value="Toys">Toys & Games</option>
+                        <option value="Footwear">Footwear</option>
+                        <option value="Fashion">Fashion & Apparel</option>
+                        <option value="Gaming">Gaming & Accessories</option>
+                        <option value="Books">Books & Stationery</option>
+                        <option value="Beauty">Beauty & Personal Care</option>
+                        <option value="Sports">Sports & Fitness</option>
                     </select>
                 </div>
 
