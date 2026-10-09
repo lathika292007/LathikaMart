@@ -16,4 +16,5 @@ public interface UserService {
     UserResponseDTO getUserById(Long id) throws AppException;
     List<UserResponseDTO> getAllUsers();
     UserResponseDTO updateUserRole(Long userId, String newRole) throws AppException;
+    UserResponseDTO updateProfile(Long userId, String name, String currentPassword, String newPassword) throws AppException;
 }

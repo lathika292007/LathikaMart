@@ -60,8 +60,8 @@ function renderProducts(products) {
                 
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
                     <span class="product-price">$${parseFloat(p.price).toFixed(2)}</span>
-                    <span class="badge ${p.stockQty > 0 ? 'badge-in-stock' : 'badge-out-of-stock'}">
-                        ${p.stockQty > 0 ? p.stockQty + ' in stock' : 'Out of Stock'}
+                    <span class="badge ${p.stockQty > 5 ? 'badge-in-stock' : (p.stockQty > 0 ? 'badge-warning' : 'badge-out-of-stock')}">
+                        ${p.stockQty > 5 ? 'In Stock (' + p.stockQty + ')' : (p.stockQty > 0 ? '🔥 Only ' + p.stockQty + ' left!' : '❌ Out of Stock')}
                     </span>
                 </div>
 

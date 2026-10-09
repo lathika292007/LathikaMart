@@ -118,4 +118,30 @@ public class UserServiceImpl implements UserService {
         }
         return UserResponseDTO.fromEntity(user);
     }
+
+    @Override
+    public UserResponseDTO updateProfile(Long userId, String name, String currentPassword, String newPassword) throws AppException {
+        if (userId == null || userId <= 0) {
+            throw new ValidationException("Invalid user ID.");
+        }
+        User user = userDAO.findById(userId)
+                .orElseThrow(() -> new NotFoundException("User not found with ID: " + userId));
+
+        if (name != null && !name.trim().isEmpty()) {
+            user.setName(name.trim());
+        }
+
+        if (newPassword != null && !newPassword.trim().isEmpty()) {
+            if (currentPassword == null || !PasswordUtil.checkPassword(currentPassword, user.getPasswordHash())) {
+                throw new ValidationException("Current password does not match.");
+            }
+            user.setPasswordHash(PasswordUtil.hashPassword(newPassword.trim()));
+        }
+
+        boolean updated = userDAO.update(user);
+        if (!updated) {
+            throw new AppException("Failed to update profile.");
+        }
+        return UserResponseDTO.fromEntity(user);
+    }
 }

@@ -46,6 +46,7 @@ async function loadOrders(mode) {
                         </span>
                     </div>
                     <div>
+                        <a href="${window.contextPath}/invoice?orderId=${order.id}" target="_blank" class="btn btn-secondary" style="margin-right:0.5rem; padding:0.25rem 0.75rem; font-size:0.85rem; text-decoration:none;">📄 Invoice</a>
                         <span class="badge" style="background:rgba(99,102,241,0.2); color:#818cf8; font-size:0.9rem;">
                             Status: ${order.status}
                         </span>

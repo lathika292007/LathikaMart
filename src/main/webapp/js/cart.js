@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', loadCart);
 
+let appliedDiscountPercent = 0;
+let appliedDiscountFlat = 0;
+let appliedCouponCode = '';
+
 async function loadCart() {
     const container = document.getElementById('cart-content');
     if (!container) return;
@@ -18,7 +22,7 @@ async function loadCart() {
         }
 
         const items = data.data.items || [];
-        const total = data.data.totalAmount || 0;
+        const rawTotal = data.data.totalAmount || 0;
 
         if (items.length === 0) {
             container.innerHTML = `
@@ -27,6 +31,13 @@ async function loadCart() {
                     <a href="${window.contextPath}/" class="btn btn-primary">Start Shopping</a>
                 </div>`;
             return;
+        }
+
+        let finalTotal = rawTotal;
+        if (appliedDiscountPercent > 0) {
+            finalTotal = rawTotal * (1 - appliedDiscountPercent / 100);
+        } else if (appliedDiscountFlat > 0) {
+            finalTotal = Math.max(0, rawTotal - appliedDiscountFlat);
         }
 
         container.innerHTML = `
@@ -64,10 +75,22 @@ async function loadCart() {
                     </tbody>
                 </table>
 
-                <div style="margin-top:2rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:1.5rem;">
+                <!-- Promo Coupon Section -->
+                <div style="margin-top:1.5rem; background:rgba(255,255,255,0.03); padding:1rem; border-radius:8px; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+                    <span style="font-weight:700;">🎟️ Promo Code:</span>
+                    <input type="text" id="couponInput" placeholder="Try LATHIKA10 or WELCOME20" class="form-input" style="width:220px; text-transform:uppercase;">
+                    <button onclick="applyCoupon()" class="btn btn-secondary">Apply Coupon</button>
+                    <span id="couponMsg" style="font-weight:700; color:#4ade80;">
+                        ${appliedCouponCode ? `✅ Coupon ${appliedCouponCode} active!` : ''}
+                    </span>
+                </div>
+
+                <div style="margin-top:1.5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:1.5rem;">
                     <div>
-                        <span style="font-size:1.25rem; font-weight:800;">Total Running Amount: </span>
-                        <span style="font-size:1.5rem; font-weight:800; color:#38bdf8;">$${parseFloat(total).toFixed(2)}</span>
+                        <div style="font-size:1rem; color:#94a3b8;">Subtotal: $${parseFloat(rawTotal).toFixed(2)}</div>
+                        ${appliedCouponCode ? `<div style="font-size:0.9rem; color:#4ade80;">Discount Applied: -$${(rawTotal - finalTotal).toFixed(2)}</div>` : ''}
+                        <div style="font-size:1.25rem; font-weight:800;">Total Amount: </div>
+                        <div style="font-size:1.5rem; font-weight:800; color:#38bdf8;">$${parseFloat(finalTotal).toFixed(2)}</div>
                     </div>
                     <button onclick="placeOrder()" class="btn btn-primary" style="padding:0.75rem 1.5rem; font-size:1.1rem;">
                         💳 Place Order (Mock Payment)
@@ -77,6 +100,37 @@ async function loadCart() {
 
     } catch (e) {
         container.innerHTML = '<div class="glass-card text-center p-8"><p>Error loading cart.</p></div>';
+    }
+}
+
+async function applyCoupon() {
+    const input = document.getElementById('couponInput');
+    if (!input || !input.value.trim()) return;
+    const code = input.value.trim().toUpperCase();
+
+    try {
+        const res = await fetch(`${window.contextPath}/api/v1/coupon/apply`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code })
+        });
+        const data = await res.json();
+        if (data.success) {
+            appliedCouponCode = code;
+            if (data.data.isPercentage) {
+                appliedDiscountPercent = parseFloat(data.data.discountValue);
+                appliedDiscountFlat = 0;
+            } else {
+                appliedDiscountFlat = parseFloat(data.data.discountValue);
+                appliedDiscountPercent = 0;
+            }
+            alert(`🎉 Coupon ${code} applied successfully!`);
+            loadCart();
+        } else {
+            alert(data.error ? data.error.message : 'Invalid coupon code.');
+        }
+    } catch (e) {
+        alert('Failed to apply coupon.');
     }
 }
 
