@@ -1,4 +1,4 @@
--- LathikaMart Seed Data Migration V2__seed_data.sql (52 Products across 10 Categories)
+-- LathikaMart Comprehensive Catalog Migration V2__seed_data.sql (65+ Products)
 
 MERGE INTO users (id, name, email, password_hash, role) KEY(id) VALUES 
 (1, 'Admin User', 'admin@lathikamart.com', '$2a$10$5Qv70cHNt38aSfAw65NfE.hcXoChUbJdNDI7Q1XA/Px.2r8aToKzi', 'ADMIN'),
@@ -7,86 +7,79 @@ MERGE INTO users (id, name, email, password_hash, role) KEY(id) VALUES
 (4, 'John Buyer', 'john.buyer@gmail.com', '$2a$10$5Qv70cHNt38aSfAw65NfE.hcXoChUbJdNDI7Q1XA/Px.2r8aToKzi', 'BUYER');
 
 MERGE INTO products (id, seller_id, name, description, price, stock_qty, category, image_url) KEY(id) VALUES
--- Category 1: Electronics (IDs 1-6)
-(1, 2, '4K Ultra HD Smart TV 55"', 'Stunning 4K display with HDR10+ and built-in streaming apps', 449.99, 15, 'Electronics', 'https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=600&q=80'),
-(2, 2, 'Ultra Slim Laptop 15.6"', 'Intel i7 processor, 16GB RAM, 512GB SSD ultra portable laptop', 899.99, 12, 'Electronics', 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80'),
-(3, 2, 'Flagship Smartphone 5G', '6.7-inch OLED 120Hz display, 108MP camera with fast charging', 699.00, 25, 'Electronics', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80'),
-(4, 2, 'Pro Tablet 11" 256GB', 'Retina display with M2 chip, stylus support, and all-day battery', 599.50, 20, 'Electronics', 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80'),
-(5, 2, '4K Gaming Monitor 27"', '144Hz 1ms IPS gaming display with G-Sync support and slim bezel', 329.99, 18, 'Electronics', 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80'),
-(6, 2, 'DSLR Mirrorless Camera 24MP', '4K video recording, 3-inch flip touchscreen with 18-55mm lens', 749.00, 8, 'Electronics', 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80'),
+-- 1. PHONES & AIR CONDITIONERS (IDs 1-10)
+(1, 2, 'iPhone 15 Pro Max 256GB', 'Titanium design, A17 Pro chip, 48MP main camera system with 5x Telephoto', 1199.00, 15, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80'),
+(2, 2, 'Samsung Galaxy S24 Ultra 5G', '200MP camera, Snapdragon 8 Gen 3, integrated S-Pen and AI photo editing', 1299.00, 20, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=600&q=80'),
+(3, 2, 'OnePlus 12 5G (16GB RAM, 512GB)', 'Hasselblad camera for mobile, 100W SUPERVOOC charging, 2K 120Hz display', 799.00, 25, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80'),
+(4, 2, 'Google Pixel 8 Pro 128GB', 'Google Tensor G3 chip, advanced AI camera, best-in-class night sight photography', 899.00, 12, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=600&q=80'),
+(5, 2, 'Redmi Note 13 Pro+ 5G', '200MP OIS camera, 120W HyperCharge, curved AMOLED 1.5K 120Hz display', 349.99, 45, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1546054454-aa26e2b734c7?auto=format&fit=crop&w=600&q=80'),
+(6, 2, 'Voltas 1.5 Ton 5 Star Inverter Split AC', '100% copper condenser, 4-in-1 adjustable cooling mode, anti-dust filter', 499.00, 10, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80'),
+(7, 2, 'Daikin 1.5 Ton 3 Star Inverter Split AC', 'PM 2.5 filter, ECONO mode, 3D airflow for quick uniform cooling', 469.00, 8, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80'),
+(8, 2, 'LG 1.5 Ton 5 Star Dual Inverter Split AC', 'AI Convertible 6-in-1 cooling, HD filter with anti-virus protection', 529.00, 14, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1614633833026-06203577d64c?auto=format&fit=crop&w=600&q=80'),
+(9, 2, 'Blue Star 1 Ton 3 Star Fixed Speed Window AC', 'Turbo cooling, self-diagnosis, 100% copper condenser for small rooms', 299.00, 6, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'),
+(10, 2, 'Lloyd 1.5 Ton 3 Star Portable Air Conditioner', 'Feather touch control panel, 360-degree casters for easy mobility', 389.00, 3, 'Smartphones & ACs', 'https://images.unsplash.com/photo-1631545856760-4886b510c4d5?auto=format&fit=crop&w=600&q=80'),
 
--- Category 2: Wearables (IDs 7-11)
-(7, 2, 'Smart Fitness Watch Pro', 'Waterproof fitness tracker with continuous heart rate monitor and GPS', 89.50, 4, 'Wearables', 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80'),
-(8, 2, 'Smart Health Ring', 'Titanium sleep tracking ring with SPO2 and body temperature sensor', 199.00, 15, 'Wearables', 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80'),
-(9, 2, 'VR Headset System 128GB', 'Standalone immersive virtual reality glasses with wireless controllers', 299.99, 10, 'Wearables', 'https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?auto=format&fit=crop&w=600&q=80'),
-(10, 2, 'GPS Outdoor Sports Watch', 'Rugged outdoor smartwatch with solar charging and topographic maps', 249.50, 14, 'Wearables', 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80'),
-(11, 2, 'Smart Audio Sunglasses', 'Polarized UV protection sunglasses with open-ear directional speakers', 129.99, 3, 'Wearables', 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80'),
+-- 2. MEN'S APPAREL (SHIRTS, PANTS, T-SHIRTS, JEANS) (IDs 11-22)
+(11, 3, 'Men Slim Fit Pure Linen Casual Shirt', '100% breathable pure linen casual shirt with spread collar in ocean blue', 39.99, 50, "Men's Clothing", 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80'),
+(12, 3, 'Men Formal Cotton Button-Down Shirt', 'Wrinkle-free pure cotton formal shirt for office and corporate wear', 34.50, 60, "Men's Clothing", 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80'),
+(13, 3, 'Men Washed Denim Casual Shirt', 'Classic indigo washed denim shirt with double chest button flap pockets', 42.00, 35, "Men's Clothing", 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=600&q=80'),
+(14, 3, 'Men Slim Fit Stretch Chino Pants', 'Versatile stretch cotton chino trousers with side pockets in beige', 45.00, 40, "Men's Clothing", 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=600&q=80'),
+(15, 3, 'Men Formal Flat-Front Trouser Pants', 'Tailored fit wrinkle-resistant formal dress trousers in charcoal grey', 38.99, 30, "Men's Clothing", 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=600&q=80'),
+(16, 3, 'Men Tactical Multi-Pocket Cargo Pants', 'Durable cotton twill relaxed fit cargo pants with utility pockets', 49.50, 25, "Men's Clothing", 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=600&q=80'),
+(17, 3, 'Men Oversized Graphic Crewneck T-Shirt', '100% combed cotton heavy-gauge streetwear graphic print t-shirt', 24.99, 80, "Men's Clothing", 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80'),
+(18, 3, 'Men Classic Pique Cotton Polo T-Shirt', 'Ribbed collar and sleeve hems classic fit polo t-shirt in navy blue', 29.50, 70, "Men's Clothing", 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80'),
+(19, 3, 'Men Pack of 3 Essential V-Neck T-Shirts', 'Ultra-soft combed cotton everyday V-neck t-shirts in Black, White, Grey', 35.00, 90, "Men's Clothing", 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=600&q=80'),
+(20, 3, 'Men Slim Fit Dark Denim Jeans', 'Premium stretch denim slim-fit jeans with 5-pocket styling', 54.99, 45, "Men's Clothing", 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80'),
+(21, 3, 'Men Tapered Fit Light Wash Denim Jeans', 'Faded distressed light blue denim jeans with comfort stretch waist', 49.99, 38, "Men's Clothing", 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=600&q=80'),
+(22, 3, 'Men Relaxed Straight Fit Jeans', 'Classic 100% cotton heavy denim straight fit indigo blue jeans', 44.50, 50, "Men's Clothing", 'https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=600&q=80'),
 
--- Category 3: Audio (IDs 12-16)
-(12, 2, 'Wireless ANC Headphones', 'High quality Bluetooth over-ear headphones with ANC and 30-hour battery life', 199.99, 50, 'Audio', 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80'),
-(13, 2, 'True Wireless Earbuds Pro', 'Active noise cancellation, IPX7 waterproof, with wireless charging case', 119.00, 65, 'Audio', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80'),
-(14, 2, 'Portable Bluetooth Speaker', '360-degree surround sound with deep bass and 20-hour battery', 59.99, 45, 'Audio', 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80'),
-(15, 2, 'Dolby Atmos Soundbar 3.1', 'Subwoofer soundbar system with Bluetooth 5.0 and HDMI eARC', 219.00, 2, 'Audio', 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80'),
-(16, 2, 'Studio Condenser USB Microphone', 'Professional podcasting and streaming microphone with shock mount', 79.50, 30, 'Audio', 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80'),
+-- 3. WOMEN'S FASHION (KURTIS, SAREES, CROP TOPS, KURTA SETS, WOMEN'S JEANS) (IDs 23-34)
+(23, 3, 'Women Anarkali Flared Printed Kurti', 'Flowy rayon Anarkali kurti with intricate floral embroidery and foil print', 39.99, 40, "Women's Fashion", 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80'),
+(24, 3, 'Women Straight Cotton Block Print Kurti', '100% pure cotton daily wear straight kurti with Mandarin neck', 27.50, 65, "Women's Fashion", 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80'),
+(25, 3, 'Women Rayon Chikankari Embroidery Kurti', 'Handcrafted lucknowi chikankari embroidery A-line tunic kurti', 34.00, 45, "Women's Fashion", 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80'),
+(26, 3, 'Kanjeevaram Soft Silk Woven Saree', 'Traditional Kanchipuram zari border soft silk saree with unstitched blouse piece', 99.00, 20, "Women's Fashion", 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80'),
+(27, 3, 'Handloom Chanderi Cotton Silk Saree', 'Lightweight woven golden motif chanderi saree for festive celebrations', 65.00, 25, "Women's Fashion", 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80'),
+(28, 3, 'Designer Georgette Floral Printed Saree', 'Elegant drape georgette saree with scalloped lace border and designer blouse', 49.99, 30, "Women's Fashion", 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80'),
+(29, 3, 'Women Ribbed Knit Fitted Crop Top', 'Stretchable cotton ribbed short sleeve crop top in pastel peach', 19.99, 85, "Women's Fashion", 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80'),
+(30, 3, 'Women Floral Summer Short Crop Top', 'Chiffon puff sleeve square neck floral print casual summer crop top', 22.50, 75, "Women's Fashion", 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80'),
+(31, 3, 'Women High-Waisted Mom Fit Jeans', 'Vintage blue washed 100% cotton high-rise relaxed mom fit denim jeans', 49.99, 50, "Women's Fashion", 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80'),
+(32, 3, 'Women Wide Leg High Rise Jeans', 'Trendy wide leg flared denim jeans with ankle length in light wash blue', 52.00, 35, "Women's Fashion", 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=600&q=80'),
+(33, 3, 'Women Embroidered Straight Kurta Pants Set', 'Chanderi silk embroidered straight kurta with trousers and organza dupatta', 75.00, 18, "Women's Fashion", 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80'),
+(34, 3, 'Women Festive Printed Kurta Palazzo Dupatta Set', '3-piece rayon flared kurta with matching palazzo pants and printed chiffon dupatta', 59.99, 22, "Women's Fashion", 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80'),
 
--- Category 4: Home & Kitchen (IDs 17-21)
-(17, 2, 'Stainless Steel Espresso Machine', '15-bar Italian pump espresso maker with integrated milk frother', 129.99, 30, 'Home & Kitchen', 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?auto=format&fit=crop&w=600&q=80'),
-(18, 2, 'Modern LED Desk Lamp', 'Eye-caring dimmable desk light with Qi fast wireless charging pad', 39.99, 70, 'Home & Kitchen', 'https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=600&q=80'),
-(19, 2, 'Smart Robot Vacuum Cleaner', 'LIDAR navigation, automatic self-emptying base, 3000Pa suction', 279.00, 11, 'Home & Kitchen', 'https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=600&q=80'),
-(20, 2, 'HEPA Air Purifier for Home', 'Filters 99.97% dust, pollen, smoke, and odors in rooms up to 500 sq ft', 89.99, 22, 'Home & Kitchen', 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80'),
-(21, 2, 'Digital Air Fryer 5.8 Qt', '8-in-1 touchscreen air fryer with rapid hot air circulation', 74.50, 5, 'Home & Kitchen', 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=600&q=80'),
+-- 4. COSMETICS & MAKEUP (10 PRODUCTS) (IDs 35-44)
+(35, 3, 'Matte Liquid Lipstick Longwear 5ml', 'Smudge-proof 12-hour transfer-proof matte liquid lipstick in Ruby Red', 14.99, 120, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80'),
+(36, 3, 'Waterproof Volume Express Mascara', 'Smear-proof instant lash lengthening and volumizing black mascara', 12.50, 100, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1591360236480-4ed861025fa1?auto=format&fit=crop&w=600&q=80'),
+(37, 3, 'Full Coverage Liquid Foundation 30ml', 'Hydrating oil-free natural matte liquid foundation with SPF 15', 24.99, 80, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=600&q=80'),
+(38, 3, 'Radiant Pressed Compact Powder', 'Oil-control weightless setting compact powder with mirror applicator', 16.00, 95, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80'),
+(39, 3, 'Precision Waterproof Eyeliner Pen', 'Intense black quick-dry felt tip liquid eyeliner for wing lines', 9.99, 150, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80'),
+(40, 3, '12-Color Nude & Shimmer Eyeshadow Palette', 'Highly pigmented blendable matte and metallic glitter eyeshadow palette', 28.50, 60, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80'),
+(41, 3, 'Soft Cheek Blush & Glow Highlighter Duo', 'Velvety smooth powder blush with luminous pearl illuminator highlighter', 18.00, 70, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80'),
+(42, 3, 'Gel Nail Polish Set (Pack of 4 shades)', 'High-gloss long-lasting quick dry salon finish gel nail enamel kit', 19.99, 85, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80'),
+(43, 3, 'Hydrating Makeup Setting Spray 100ml', 'Dewy finish long-lasting weightless makeup fixer setting mist spray', 15.50, 110, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1608248597349-f5127d142d59?auto=format&fit=crop&w=600&q=80'),
+(44, 3, 'Micellar Cleansing Makeup Remover Water 400ml', 'Gentle non-greasy facial cleanser and waterproof makeup remover', 11.99, 130, 'Cosmetics & Beauty', 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80'),
 
--- Category 5: Footwear (IDs 22-26)
-(22, 3, 'Ergonomic Running Shoes', 'Lightweight mesh sneakers engineered for maximum comfort and cushioning', 79.99, 40, 'Footwear', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80'),
-(23, 3, 'Classic Leather Oxford Shoes', 'Handcrafted genuine leather formal shoes with anti-slip rubber sole', 110.00, 25, 'Footwear', 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=600&q=80'),
-(24, 3, 'High-Top Canvas Sneakers', 'Retro casual high-top canvas sneakers with durable rubber toe cap', 49.99, 50, 'Footwear', 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80'),
-(25, 3, 'Waterproof Hiking Boots', 'All-terrain suede hiking boots with breathable waterproof membrane', 95.00, 18, 'Footwear', 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=600&q=80'),
-(26, 3, 'Comfort Cushion Sandals', 'Ergonomic leather strap sandals with contoured arch support footbed', 34.99, 35, 'Footwear', 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=600&q=80'),
-
--- Category 6: Fashion & Apparel (IDs 27-31)
-(27, 3, 'Classic Lambskin Leather Jacket', '100% Genuine lambskin leather jacket with premium quilted lining', 149.00, 25, 'Fashion', 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80'),
-(28, 3, 'Designer Slim Fit Jeans', 'Premium stretch cotton slim-fit denim jeans in dark indigo wash', 59.50, 45, 'Fashion', 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80'),
-(29, 3, 'Minimalist Waterproof Backpack', 'Durable water-resistant laptop backpack with USB charging port', 45.00, 80, 'Fashion', 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80'),
-(30, 3, 'Organic Cotton Fleece Hoodie', 'Heavyweight 100% organic cotton pullover hoodie with kangaroo pocket', 49.99, 60, 'Fashion', 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80'),
-(31, 3, 'Classic Chronograph Analog Watch', 'Stainless steel quartz watch with genuine leather strap and date display', 85.00, 1, 'Fashion', 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80'),
-
--- Category 7: Gaming (IDs 32-36)
-(32, 2, 'Mechanical RGB Gaming Keyboard', 'Tactile mechanical switches with customizable RGB backlighting', 69.99, 60, 'Gaming', 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80'),
-(33, 2, 'Wireless Ergonomic Gaming Mouse', '26K DPI optical sensor with 68g lightweight design and PTFE feet', 54.99, 40, 'Gaming', 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80'),
-(34, 2, 'Ergonomic Gaming Chair', 'High-density foam gaming chair with lumbar support and 180-degree recline', 189.00, 8, 'Gaming', 'https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=600&q=80'),
-(35, 2, 'Wireless Gamepad Controller', 'Dual vibration motors with zero-latency 2.4GHz wireless connection', 39.99, 50, 'Gaming', 'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=600&q=80'),
-(36, 2, 'RGB Extended Mouse Pad', 'Extra large desk mat with 14 RGB lighting modes and anti-slip rubber base', 24.50, 75, 'Gaming', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80'),
-
--- Category 8: Books & Stationery (IDs 37-41)
-(37, 2, 'Clean Code: Handbook of Software Craftsmanship', 'Essential principles, patterns, and practices of writing clean Java code', 37.50, 40, 'Books', 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80'),
-(38, 2, 'Design Patterns: Elements of Reusable Software', 'Classic Gang of Four reference guide on software design patterns', 49.99, 30, 'Books', 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80'),
-(39, 3, 'Atomic Habits by James Clear', 'Proven way to build good habits and break bad ones through micro changes', 18.99, 85, 'Books', 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80'),
-(40, 3, 'The Pragmatic Programmer 20th Anniversary', 'Timeless wisdom and classic career advice for software developers', 42.00, 50, 'Books', 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80'),
-(41, 3, 'Executive Leather Journal & Fountain Pen Set', 'Refillable A5 hardcover leather notebook with iridium nib fountain pen', 29.99, 60, 'Books', 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80'),
-
--- Category 9: Beauty & Personal Care (IDs 42-46)
-(42, 3, 'Organic Hydrating Face Serum 50ml', 'Hyaluronic acid and vitamin C anti-aging face oil serum', 24.50, 110, 'Beauty', 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80'),
-(43, 3, 'Electric Rotary Shaver 4-in-1', 'IPX7 3D floating head electric razor with beard trimmer attachment', 45.00, 35, 'Beauty', 'https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=600&q=80'),
-(44, 3, 'Ionic Hair Dryer 1800W', 'Professional negative ion fast drying blow dryer with diffuser', 39.99, 40, 'Beauty', 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80'),
-(45, 3, 'Deep Tissue Massage Gun', '20-speed brushless motor percussion muscle massager with 6 heads', 59.99, 25, 'Beauty', 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80'),
-(46, 3, 'Sonic Electric Toothbrush', '40,000 VPM ultrasonic toothbrush with 5 modes and 4 brush heads', 29.50, 80, 'Beauty', 'https://images.unsplash.com/photo-1559591937-e68fb3305e43?auto=format&fit=crop&w=600&q=80'),
-
--- Category 10: Sports & Fitness (IDs 47-52)
-(47, 3, 'Pro Non-Slip Yoga & Exercise Mat', 'Eco-friendly 6mm extra-thick high-density TPE workout mat', 29.99, 90, 'Sports', 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=600&q=80'),
-(48, 3, 'Adjustable Rubber Dumbbell Set 20kg', 'Versatile cast iron dumbbell pair with quick-adjust weight plates', 65.00, 20, 'Sports', 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=600&q=80'),
-(49, 3, 'Insulated Stainless Steel Water Bottle 1L', 'Double-wall vacuum insulated flask keeps drinks cold for 24 hours', 19.99, 120, 'Sports', 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80'),
-(50, 3, 'Heavy Duty Resistance Loop Bands', 'Set of 5 natural latex resistance exercise bands for home fitness', 14.99, 150, 'Sports', 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&w=600&q=80'),
-(51, 3, 'Speed Jump Rope with Ball Bearings', 'Tangle-free steel cable speed jump rope with anti-slip aluminum handles', 12.50, 95, 'Sports', 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80'),
-(52, 3, 'Aerobic Fitness Step Platform', '4-inch to 6-inch adjustable stepper platform for cardio workouts', 32.00, 18, 'Sports', 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80');
+-- 5. SNACKS & GOURMET FOODS (IDs 45-55)
+(45, 2, 'South Indian Special Murukku & Mixture Pack 500g', 'Authentic crunchy handmade butter murukku and spicy garlic mixture box', 8.99, 200, 'Snacks & Foods', 'https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=600&q=80'),
+(46, 2, 'Roasted & Salted Premium Cashew & Almonds 400g', 'Crunchy jumbo roasted cashews and California almonds healthy snack jar', 19.50, 120, 'Snacks & Foods', 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'),
+(47, 2, '70% Cocoa Belgian Dark Chocolate Bars (Pack of 3)', 'Rich smooth bittersweet artisan dark chocolate bars with sea salt', 12.99, 150, 'Snacks & Foods', 'https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=600&q=80'),
+(48, 2, 'Gourmet Potato Chips Combo Pack (6 Flavors)', 'Crispy kettle cooked potato chips in Cream & Onion, Peri Peri, Salted', 9.50, 180, 'Snacks & Foods', 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=600&q=80'),
+(49, 2, 'Organic Kashmiri Green Tea & Jasmine Box', 'Pure whole leaf green tea bags rich in antioxidants for morning freshness', 14.00, 90, 'Snacks & Foods', 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80'),
+(50, 2, 'Movie Theater Butter Salted Popcorn 300g', 'Instant microwave crunchy jumbo kernels butter salted gourmet popcorn', 6.99, 250, 'Snacks & Foods', 'https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=600&q=80'),
+(51, 2, 'Roasted Peri Peri Makhana Foxnuts 200g', 'Low-calorie crunchy roasted lotus seeds seasoned with spicy peri peri', 11.50, 140, 'Snacks & Foods', 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=600&q=80'),
+(52, 2, 'Crunchy Peanut Butter Creamy Spread 1kg', '100% roasted peanuts high protein zero trans-fat peanut butter jar', 13.99, 80, 'Snacks & Foods', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80'),
+(53, 2, 'Assorted Indian Mithai Sweet Box 500g', 'Fresh Kaju Katli, Besan Ladoo, and Milk Peda festive sweet gift hamper', 22.00, 60, 'Snacks & Foods', 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=600&q=80'),
+(54, 2, 'Cold Pressed Sparkling Mango Drink 6-Pack', 'Real Alphonso mango pulp sparkling refreshment cans with natural fruit juice', 10.99, 110, 'Snacks & Foods', 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80'),
+(55, 2, 'Multigrain Digestive Biscuit Family Pack 750g', 'High-fiber oats and wheat digestive biscuits ideal for evening tea', 7.50, 160, 'Snacks & Foods', 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80');
 
 MERGE INTO orders (id, buyer_id, status, total_amount) KEY(id) VALUES
-(1, 4, 'DELIVERED', 199.99);
+(1, 4, 'DELIVERED', 1199.00);
 
 MERGE INTO order_items (id, order_id, product_id, quantity, unit_price) KEY(id) VALUES
-(1, 1, 12, 1, 199.99);
+(1, 1, 1, 1, 1199.00);
 
 MERGE INTO reviews (id, product_id, user_id, rating, comment) KEY(id) VALUES
-(1, 12, 4, 5, 'Amazing noise cancellation and battery life!'),
-(2, 7, 4, 4, 'Great fitness watch, accurate steps and long battery.'),
-(3, 22, 4, 5, 'Super comfortable shoes for long runs!'),
-(4, 37, 4, 5, 'Must-read book for every software engineer!');
+(1, 1, 4, 5, 'Super fast iPhone 15 Pro Max, camera is incredible!'),
+(2, 6, 4, 5, 'Voltas AC cools the room in under 5 minutes.'),
+(3, 23, 4, 5, 'Beautiful Anarkali kurti, perfect fit and soft fabric.'),
+(4, 35, 4, 5, 'Lipstick color stays all day without drying lips!');

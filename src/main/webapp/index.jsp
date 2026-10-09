@@ -57,17 +57,12 @@
                 <div style="flex:1; min-width:160px;">
                     <label style="font-size:0.8rem; color:#94a3b8; display:block; margin-bottom:0.25rem;">Category</label>
                     <select id="category-filter" class="form-select" onchange="handleSearch()">
-                        <option value="all">All Categories (52 Items)</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Wearables">Wearables</option>
-                        <option value="Audio">Audio</option>
-                        <option value="Home & Kitchen">Home & Kitchen</option>
-                        <option value="Footwear">Footwear</option>
-                        <option value="Fashion">Fashion & Apparel</option>
-                        <option value="Gaming">Gaming & Accessories</option>
-                        <option value="Books">Books & Stationery</option>
-                        <option value="Beauty">Beauty & Personal Care</option>
-                        <option value="Sports">Sports & Fitness</option>
+                        <option value="all">All Categories (55+ Items)</option>
+                        <option value="Smartphones & ACs">📱 Phones & ❄️ ACs</option>
+                        <option value="Men's Clothing">👔 Men's Shirts, Pants, T-Shirts & Jeans</option>
+                        <option value="Women's Fashion">👗 Women's Kurtis, Sarees, Crop Tops & Sets</option>
+                        <option value="Cosmetics & Beauty">💄 Cosmetics & 10 Makeup Items</option>
+                        <option value="Snacks & Foods">🍿 Snacks, Murukku, Chocolates & Dry Fruits</option>
                     </select>
                 </div>
 
