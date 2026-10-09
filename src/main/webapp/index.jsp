@@ -47,23 +47,40 @@
 
     <!-- Main Container -->
     <main class="container">
-        <!-- Hero Welcome Banner -->
-        <div class="glass-card mb-6" style="background: linear-gradient(135deg, rgba(79,70,229,0.3) 0%, rgba(56,189,248,0.2) 100%); border: 1px solid rgba(99,102,241,0.4); padding: 2.25rem 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; text-align: center;">
-            <h1 style="font-size: 2.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        <!-- Premium Hero Welcome Banner -->
+        <div class="hero-banner-section">
+            <div class="hero-pill-badge">
+                🔥 INDIA'S #1 MULTI-SELLER E-COMMERCE MARKETPLACE
+            </div>
+            <h1 class="hero-heading">
                 ✨ Welcome to LathikaMart!
             </h1>
-            <p style="font-size: 1.1rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 1.25rem auto;">
-                India's Premier Multi-Seller E-Commerce Marketplace — Discover 55+ Smartphones, ACs, Kurtis, Sarees, Cosmetics & Snacks!
+            <p class="hero-subtext">
+                Discover 55+ Premium Smartphones, ACs, Kurtis, Sarees, Designer Fashion, Makeup & Gourmet Snacks — Fast Delivery & Best Unbeatable Prices!
             </p>
             <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-                <button onclick="document.getElementById('search-input').focus()" class="btn btn-primary" style="padding: 0.6rem 1.4rem;">
+                <button onclick="document.getElementById('search-input').focus()" class="btn btn-primary" style="padding: 0.75rem 1.75rem; font-size:1.05rem; font-weight:700;">
                     🛍️ Start Shopping Now
                 </button>
-                <c:if test="${not empty sessionScope.currentUser}">
-                    <a href="${pageContext.request.contextPath}/wishlist.jsp" class="btn btn-secondary" style="padding: 0.6rem 1.4rem; text-decoration:none;">
-                        ❤️ My Wishlist
-                    </a>
-                </c:if>
+                <c:choose>
+                    <c:when test="${not empty sessionScope.currentUser}">
+                        <a href="${pageContext.request.contextPath}/wishlist.jsp" class="btn btn-secondary" style="padding: 0.75rem 1.75rem; font-size:1.05rem; text-decoration:none;">
+                            ❤️ View My Wishlist
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${pageContext.request.contextPath}/register.jsp" class="btn btn-secondary" style="padding: 0.75rem 1.75rem; font-size:1.05rem; text-decoration:none;">
+                            🚀 Create Free Account
+                        </a>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
+            <div class="hero-stats-bar">
+                <div class="hero-stat-item">⚡ <span>Fast Express Delivery</span></div>
+                <div class="hero-stat-item">🛡️ <span>100% Genuine Guarantee</span></div>
+                <div class="hero-stat-item">🔒 <span>BCrypt Secure Payments</span></div>
+                <div class="hero-stat-item">🌟 <span>4.9★ Top Rating</span></div>
             </div>
         </div>
 
