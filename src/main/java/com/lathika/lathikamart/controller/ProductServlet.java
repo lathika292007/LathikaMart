@@ -73,8 +73,8 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserResponseDTO user = getAuthenticatedUser(req);
-        if (user == null || (user.getRole() != Role.SELLER && user.getRole() != Role.ADMIN)) {
-            JsonUtil.sendError(resp, HttpServletResponse.SC_FORBIDDEN, "FORBIDDEN", "Only sellers or admins can create products.");
+        if (user == null) {
+            JsonUtil.sendError(resp, HttpServletResponse.SC_UNAUTHORIZED, "UNAUTHORIZED", "Please log in to create products.");
             return;
         }
 

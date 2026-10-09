@@ -20,9 +20,7 @@
             
             <c:choose>
                 <c:when test="${not empty sessionScope.currentUser}">
-                    <c:if test="${sessionScope.currentUser.role eq 'SELLER' or sessionScope.currentUser.role eq 'ADMIN'}">
-                        <a href="${pageContext.request.contextPath}/seller-dashboard.jsp" class="nav-link">Seller Dashboard</a>
-                    </c:if>
+                    <a href="${pageContext.request.contextPath}/seller-dashboard.jsp" class="nav-link">Seller Hub</a>
                     <c:if test="${sessionScope.currentUser.role eq 'ADMIN'}">
                         <a href="${pageContext.request.contextPath}/admin.jsp" class="nav-link">Admin Panel</a>
                     </c:if>

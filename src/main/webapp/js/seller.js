@@ -32,7 +32,7 @@ async function loadSellerProducts() {
     const currentUser = window.currentUserId;
 
     if (!currentUser) {
-        container.innerHTML = '<div class="text-center p-8"><p>Please log in as a seller.</p></div>';
+        container.innerHTML = '<div class="text-center p-8"><p style="color:#94a3b8;">Please <a href="' + window.contextPath + '/login.jsp" style="color:#38bdf8; font-weight:600; text-decoration:underline;">log in</a> to view and manage your product listings.</p></div>';
         return;
     }
 
@@ -143,13 +143,37 @@ async function editProduct(id) {
 async function handleProductFormSubmit(e) {
     e.preventDefault();
     const id = document.getElementById('prod-id').value;
+    const name = document.getElementById('prod-name').value.trim();
+    const category = document.getElementById('prod-category').value.trim();
+    const priceVal = parseFloat(document.getElementById('prod-price').value);
+    const stockVal = parseInt(document.getElementById('prod-stock').value, 10);
+    let imageUrl = document.getElementById('prod-image').value.trim();
+    const description = document.getElementById('prod-desc').value.trim();
+
+    if (!name) {
+        alert('Please enter a product name.');
+        return;
+    }
+    if (isNaN(priceVal) || priceVal <= 0) {
+        alert('Please enter a valid price greater than 0.');
+        return;
+    }
+    if (isNaN(stockVal) || stockVal < 0) {
+        alert('Please enter a valid stock quantity.');
+        return;
+    }
+
+    if (!imageUrl) {
+        imageUrl = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e';
+    }
+
     const payload = {
-        name: document.getElementById('prod-name').value.trim(),
-        category: document.getElementById('prod-category').value.trim(),
-        price: parseFloat(document.getElementById('prod-price').value),
-        stockQty: parseInt(document.getElementById('prod-stock').value),
-        imageUrl: document.getElementById('prod-image').value.trim(),
-        description: document.getElementById('prod-desc').value.trim()
+        name: name,
+        category: category,
+        price: priceVal,
+        stockQty: stockVal,
+        imageUrl: imageUrl,
+        description: description
     };
 
     const url = id ? `${window.contextPath}/api/v1/products/${id}` : `${window.contextPath}/api/v1/products`;
@@ -164,6 +188,7 @@ async function handleProductFormSubmit(e) {
 
         const data = await res.json();
         if (data.success) {
+            alert(id ? '✨ Product listing updated successfully!' : '🎉 New product listing created successfully!');
             hideProductModal();
             loadSellerStats();
             loadSellerProducts();
@@ -171,7 +196,7 @@ async function handleProductFormSubmit(e) {
             alert(data.error ? data.error.message : 'Failed to save product listing.');
         }
     } catch (err) {
-        alert('Network error saving product.');
+        alert('Network error saving product. Please check your session or connection.');
     }
 }
 

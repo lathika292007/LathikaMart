@@ -84,23 +84,29 @@
 
                 <div class="form-group">
                     <label class="form-label" for="prod-category">Category *</label>
-                    <input type="text" id="prod-category" class="form-input" required placeholder="Electronics, Fashion, Books, Home">
+                    <select id="prod-category" class="form-select" required>
+                        <option value="Smartphones & ACs">📱 Smartphones & ACs</option>
+                        <option value="Men's Clothing">👔 Men's Clothing (Shirt, Pant, T-Shirt, Jeans)</option>
+                        <option value="Women's Fashion">👗 Women's Fashion (Kurti, Saree, Crop Top, Kurta Set)</option>
+                        <option value="Cosmetics & Beauty">💄 Cosmetics & Beauty (Makeup Products)</option>
+                        <option value="Snacks & Foods">🍿 Snacks & Foods (Murukku, Sweets, Nuts)</option>
+                    </select>
                 </div>
 
                 <div style="display:flex; gap:1rem;">
                     <div class="form-group" style="flex:1;">
                         <label class="form-label" for="prod-price">Price ($) *</label>
-                        <input type="number" step="0.01" id="prod-price" class="form-input" required placeholder="199.99">
+                        <input type="number" step="0.01" min="0.01" id="prod-price" class="form-input" required placeholder="199.99">
                     </div>
                     <div class="form-group" style="flex:1;">
                         <label class="form-label" for="prod-stock">Stock Quantity *</label>
-                        <input type="number" id="prod-stock" class="form-input" required placeholder="50">
+                        <input type="number" min="0" id="prod-stock" class="form-input" required placeholder="50">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="prod-image">Image URL</label>
-                    <input type="url" id="prod-image" class="form-input" placeholder="https://images.unsplash.com/...">
+                    <label class="form-label" for="prod-image">Image URL (Optional)</label>
+                    <input type="text" id="prod-image" class="form-input" placeholder="https://images.unsplash.com/... (Leaves blank for default image)">
                 </div>
 
                 <div class="form-group">
