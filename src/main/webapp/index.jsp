@@ -28,6 +28,7 @@
                     </c:if>
                     <a href="${pageContext.request.contextPath}/orders.jsp" class="nav-link">My Orders</a>
                     <a href="${pageContext.request.contextPath}/wishlist.jsp" class="nav-link">❤️ Wishlist</a>
+                    <a href="${pageContext.request.contextPath}/profile.jsp" class="nav-link">👤 Profile</a>
                     <a href="${pageContext.request.contextPath}/cart.jsp" class="nav-link">🛒 Cart</a>
                     
                     <span style="color:#38bdf8; font-weight:600; font-size:0.9rem;">
@@ -46,6 +47,26 @@
 
     <!-- Main Container -->
     <main class="container">
+        <!-- Hero Welcome Banner -->
+        <div class="glass-card mb-6" style="background: linear-gradient(135deg, rgba(79,70,229,0.3) 0%, rgba(56,189,248,0.2) 100%); border: 1px solid rgba(99,102,241,0.4); padding: 2.25rem 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; text-align: center;">
+            <h1 style="font-size: 2.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+                ✨ Welcome to LathikaMart!
+            </h1>
+            <p style="font-size: 1.1rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 1.25rem auto;">
+                India's Premier Multi-Seller E-Commerce Marketplace — Discover 55+ Smartphones, ACs, Kurtis, Sarees, Cosmetics & Snacks!
+            </p>
+            <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+                <button onclick="document.getElementById('search-input').focus()" class="btn btn-primary" style="padding: 0.6rem 1.4rem;">
+                    🛍️ Start Shopping Now
+                </button>
+                <c:if test="${not empty sessionScope.currentUser}">
+                    <a href="${pageContext.request.contextPath}/wishlist.jsp" class="btn btn-secondary" style="padding: 0.6rem 1.4rem; text-decoration:none;">
+                        ❤️ My Wishlist
+                    </a>
+                </c:if>
+            </div>
+        </div>
+
         <!-- Search & Advanced Filter Controls -->
         <div class="glass-card mb-6" style="margin-bottom: 1.5rem; padding: 1.25rem;">
             <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; margin-bottom:1rem;">
@@ -83,20 +104,17 @@
                         <option value="price_desc">💎 Price: High to Low</option>
                     </select>
                 </div>
-
-                <div style="display:flex; align-items:flex-end;">
-                    <button onclick="handleSearch()" class="btn btn-primary" style="padding:0.6rem 1.2rem;">🔍 Filter</button>
-                </div>
             </div>
 
             <!-- Quick Category Badges -->
             <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:0.75rem;">
                 <span style="font-size:0.8rem; color:#94a3b8; margin-right:0.5rem;">Quick Facets:</span>
                 <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('all')">All</button>
-                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Electronics')">💻 Electronics</button>
-                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Fashion')">👕 Fashion</button>
-                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Home & Kitchen')">🏠 Home & Kitchen</button>
-                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Books')">📚 Books</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Smartphones & ACs')">📱 Phones & ACs</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Men\'s Clothing')">👔 Men's Fashion</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Women\'s Fashion')">👗 Women's Ethnic</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Cosmetics & Beauty')">💄 Makeup</button>
+                <button class="btn btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.75rem;" onclick="setQuickCategory('Snacks & Foods')">🍿 Snacks</button>
             </div>
         </div>
 
@@ -106,24 +124,26 @@
         </div>
     </main>
 
-    <!-- AI Chatbot Floating Widget -->
-    <button id="chat-widget-btn" class="chat-widget-btn" title="Ask AI Assistant">🤖</button>
-    
-    <div id="chat-panel" class="chat-panel">
-        <div class="chat-header">
-            <span>✨ LathikaMart AI Assistant</span>
-            <button id="close-chat-btn" style="background:none; border:none; color:white; font-size:1.2rem; cursor:pointer;">&times;</button>
-        </div>
-        <div id="chat-messages" class="chat-messages">
-            <div class="chat-msg chat-msg-bot">
-                Hello! I am your AI Assistant. Ask me about products, shipping, returns, or seller options!
+    <!-- AI Chatbot Floating Widget (Only Available for Logged-In Users) -->
+    <c:if test="${not empty sessionScope.currentUser}">
+        <button id="chat-widget-btn" class="chat-widget-btn" title="Ask AI Assistant">🤖</button>
+        
+        <div id="chat-panel" class="chat-panel">
+            <div class="chat-header">
+                <span>✨ LathikaMart AI Assistant</span>
+                <button id="close-chat-btn" style="background:none; border:none; color:white; font-size:1.2rem; cursor:pointer;">&times;</button>
             </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-msg chat-msg-bot">
+                    Hello <c:out value="${sessionScope.currentUser.name}"/>! I am your AI Assistant. Ask me about products, shipping, returns, or coupons!
+                </div>
+            </div>
+            <form id="chat-form" class="chat-input-area">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask a question..." required maxlength="500">
+                <button type="submit" class="btn btn-primary" style="padding:0.4rem 0.8rem;">Send</button>
+            </form>
         </div>
-        <form id="chat-form" class="chat-input-area">
-            <input type="text" id="chat-input" class="chat-input" placeholder="Ask a question..." required maxlength="500">
-            <button type="submit" class="btn btn-primary" style="padding:0.4rem 0.8rem;">Send</button>
-        </form>
-    </div>
+    </c:if>
 
     <!-- Product Reviews Modal -->
     <div id="reviews-modal" class="modal-overlay">
@@ -144,7 +164,7 @@
                                 <option value="5">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
                                 <option value="4">⭐⭐⭐⭐ (4/5 Very Good)</option>
                                 <option value="3">⭐⭐⭐ (3/5 Good)</option>
-                                <option value="2">⭐⭐ (2/2 Fair)</option>
+                                <option value="2">⭐⭐ (2/5 Fair)</option>
                                 <option value="1">⭐ (1/5 Poor)</option>
                             </select>
                         </div>
