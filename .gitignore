@@ -1,0 +1,6 @@
+target/
+*.log
+cloudflared.exe
+.DS_Store
+*.zip
+*.war
